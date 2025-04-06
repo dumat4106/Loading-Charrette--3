@@ -6,3 +6,37 @@ html, body {
 canvas {
   display: block;
 }
+
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 33%;
+  text-align: center;
+}
+
+header {
+  text-align: center;
+}
+
+a:hover {
+  color:rgb(67, 30, 254);
+}
+
+#sketch-container {
+  width: 66%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  margin-top: 75px;
+}
+
+canvas {
+  width: 500px;
+  height: 500px;
+}
+
