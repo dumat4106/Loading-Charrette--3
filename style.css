@@ -21,6 +21,11 @@ header {
 
 a:hover {
   color:rgb(67, 30, 254);
+  text-decoration: none;
+}
+
+a:visited {
+  color:rgb(67, 30, 254);
 }
 
 #sketch-container {
