@@ -5,6 +5,8 @@ let img;
 let particlesToAdd = []; 
 let particlesToRemove = []; 
 
+
+
 function preload() {
     img = loadImage("ArtworkImages/Artwork_4.jpg");
 }

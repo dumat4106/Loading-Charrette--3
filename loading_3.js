@@ -10,6 +10,7 @@ function preload() {
 
 function setup() {
     img.resize(500, 0);
+    img.loadPixels();
     createCanvas(500, 500).parent("canvas");
     spawnParticles();
 }
