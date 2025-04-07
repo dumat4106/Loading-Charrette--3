@@ -2,16 +2,16 @@
 
 let particles = [];
 let img;
-let particlesToAdd = []; // Temporary holding for new particles
-let particlesToRemove = []; // Temporary holding for particles to remove
+let particlesToAdd = []; 
+let particlesToRemove = []; 
 
 function preload() {
     img = loadImage("ArtworkImages/Artwork_4.jpg");
 }
 
 function setup() {
-    createCanvas(500, 500);
-    img.resize(500, 500);
+    createCanvas(500, 500).parent("canvas");
+    img.resize(500, 0);
     img.loadPixels();
     particles.push(new Particle(width/2, height/2, img.get(width/2, height/2), width));
 }
@@ -19,11 +19,9 @@ function setup() {
 function draw() {
     background("white");
     
-    // Clear temporary arrays
     particlesToAdd = [];
     particlesToRemove = [];
     
-    // Process all particles
     for (let particle of particles) {
         particle.draw();
         if (particle.isHovered() && !particle.hasSplit) {
@@ -31,7 +29,6 @@ function draw() {
         }
     }
     
-    // Apply changes AFTER processing all particles
     particles = particles.concat(particlesToAdd);
     particles = particles.filter(p => !particlesToRemove.includes(p));
 }
@@ -50,7 +47,6 @@ class Particle {
             const offset = this.size / 4;
             const newSize = this.size / 2;
             
-            // Add new particles to temporary array
             particlesToAdd.push(
                 new Particle(this.x - offset, this.y - offset, img.get(this.x - offset, this.y - offset), newSize),
                 new Particle(this.x + offset, this.y - offset, img.get(this.x + offset, this.y - offset), newSize),
@@ -59,7 +55,7 @@ class Particle {
             );
             
             this.hasSplit = true;
-            particlesToRemove.push(this); // Mark this particle for removal
+            particlesToRemove.push(this); 
         }
     }
 
